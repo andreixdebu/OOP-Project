@@ -4,7 +4,7 @@ It is a **management app** for a car showroom which could be made out of sedans,
 
 ## Mandatory(main) features:
 - [x] Layered architecture.
-- [x] Add an animal + data validation.
+- [x] Add an car + data validation.
 - [x] Remove a car by id.
 - [x] Display all cars.
 - [x] Filtering: display items with some properties.
