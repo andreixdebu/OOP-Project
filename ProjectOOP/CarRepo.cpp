@@ -8,13 +8,18 @@ using namespace std;
 
 void CarRepo::addCar(Car* newCar)
 {
-	// Adds a car to the repository
+	/*
+	Adds a car to the repository
+	*/
 	c_data.push_back(newCar);
+
 }
 
 Car* CarRepo::removeCar(int id)
 {
-	// Removes the car by ID, returns the removed car for the undo/redo
+	/*
+	Removes the car by ID, returns the removed car for the undo/redo
+	*/
 	Car* result = nullptr;
 	auto index = find_if(c_data.begin(), c_data.end(), [id](Car* result)->bool {
 		return result->getID() == id;
@@ -28,7 +33,9 @@ Car* CarRepo::removeCar(int id)
 
 string CarRepo::carToCSV(Car* C)
 {
-	// Returns a csv representation of a car 'C'
+	/*
+	Returns a csv representation of a car 'C'
+	*/
 	string result;
 	result = to_string(C->getID()) + ',' + C->getName() + ',' + C->getModel();
 	result += ',' + to_string(C->getHP()) + ',' + to_string(C->getKM()) + ',' + to_string(C->getEngine()) + ',' + to_string(C->getPrice());
@@ -37,7 +44,9 @@ string CarRepo::carToCSV(Car* C)
 
 ostream& CarRepo::display(ostream& os, bool(*filterFunction)(Car*))
 {
-	// Displays all the cars that satisfy a given property 'filterFunction'
+	/*
+	Displays all the cars that satisfy a given property 'filterFunction'
+	*/
 	for (auto i = 0; i < c_data.size(); i++)
 		if (filterFunction(c_data[i]) == true)
 			os << *c_data[i] << endl;
@@ -46,7 +55,9 @@ ostream& CarRepo::display(ostream& os, bool(*filterFunction)(Car*))
 
 ostream& CarRepo::displayCheaper(ostream& os, float value, bool(*filterFunction2)(Car*, float))
 {
-	// Displays all the cars that satisfy a given property 'filterFunction2'
+	/*
+	Displays all the cars that satisfy a given property 'filterFunction2'
+	*/
 	for (auto i = 0; i < c_data.size(); i++)
 		if (filterFunction2(c_data[i], value) == true)
 			os << *c_data[i] << endl;
@@ -55,7 +66,9 @@ ostream& CarRepo::displayCheaper(ostream& os, float value, bool(*filterFunction2
 
 void CarRepo::loadData()
 {
-	// Reads the data from 'Input.csv' and loads it into the repository
+	/*
+	Reads the data from 'Input.csv' and loads it into the repository
+	*/
 	fstream inputFile;
 	try
 	{
@@ -93,7 +106,9 @@ void CarRepo::loadData()
 
 void CarRepo::saveData()
 {
-	// Writes and saves the data from the repository to 'Output.csv'
+	/*
+	Writes and saves the data from the repository to 'Output.csv'
+	*/
 	fstream fout;
 	try
 	{
